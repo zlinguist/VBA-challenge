@@ -12,6 +12,7 @@ Sub stockAnalysis()
         Dim row As Long
         Dim current_open As Variant
         Dim current_close As Variant
+        Dim current_volume As Long
         
         lastrow = ws.Cells(Rows.Count, 1).End(xlUp).row
         current_row = 2
@@ -51,7 +52,7 @@ Sub stockAnalysis()
         ws.Range("P1").Value = "Ticker"
         ws.Range("Q1").Value = "Value"
 
-        lastsummalryrow = ws.Cells(Rows.Count, 9).End(xlUp).row
+        lastsummaryrow = ws.Cells(Rows.Count, 9).End(xlUp).row
 
         max_increase = 0
         min_increase = 0
@@ -60,7 +61,7 @@ Sub stockAnalysis()
         min_increase_row = 1
         max_volume_row = 1
 
-        For row = 2 To lastsummalryrow
+        For row = 2 To lastsummaryrow
 
             If max_increase < ws.Cells(row, 11) Then
                 max_increase = ws.Cells(row, 11).Value
@@ -90,10 +91,6 @@ Sub stockAnalysis()
         ws.Range("Q2:Q3").NumberFormat = "0.00%"
 
     Next ws
-
-
-
-'    Range("I1:Q70926") = ""
 
 End Sub
 
